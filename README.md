@@ -1,4 +1,4 @@
-# Code_wars
+# Code Wars
 
 Here, in this repository, are represented all of my tasks on CodeWars
 
