@@ -1,5 +1,5 @@
 # Code Wars
 
-Here, in this repository, are represented all of my tasks on CodeWars
+Here, in this repository, are represented all of my tasks on Codewars
 
-[My Website](https://www.codewars.com/users/M1estere)
+[My Profile On Codewars](https://www.codewars.com/users/M1estere)
