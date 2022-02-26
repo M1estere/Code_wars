@@ -1,9 +1,9 @@
-'''
+''' Every digit squared
 
 def square_digits(num):
   num = abs(num)
   result = ''
-
+  
   while (num > 0):
     result = str((num % 10)**2) + result
     num //= 10
@@ -18,12 +18,12 @@ print(square_digits(int(input())))
 def is_isogram(string):
   string = string.lower()
   word_alphabet = ""
-
+  
   word_arr = list(string)
-
+  
   for letter in word_arr:
     word_alphabet += letter
-
+      
   for char in word_alphabet:
     if (word_alphabet.count(char) > 1):
       return False
@@ -56,7 +56,7 @@ import math
 
 def is_square(n):  
   if (n < 0): return False
-
+  
   num_root = math.isqrt(n)
 
   if (num_root ** 2 == n):
@@ -146,7 +146,7 @@ def alphabet_position(text):
       result += " "
     else: 
       result += ""
-
+    
   return result.strip()
 
 print(alphabet_position("The sunset sets at twelve o' clock."))
@@ -196,7 +196,7 @@ print(likes(["Alex", "Jacob", "Mark", "Max"]))
 def duplicate_encode(word):
 
   result_string = ""
-
+  
   for char in word.lower():
     if (word.lower().count(char) == 1): 
       result_string = result_string + "("
@@ -209,3 +209,108 @@ print(duplicate_encode("dtring"))
 
 '''
 
+'''
+
+def increment_string(s):
+
+  stripped_chars = s.rstrip('1234567890')
+  digits = s[len(stripped_chars):]
+  
+  if len(digits) == 0:
+    return s + '1'
+  else:
+    length = len(digits)
+
+    new_digits = 1 + int(digits)
+    new_digits = str(new_digits).zfill(length)
+
+    return stripped_chars + new_digits
+    
+print(increment_string("foo09"))
+
+'''
+
+'''
+
+def find_missing_letter(chars): # list a, b, c, d, f
+
+  alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
+  
+  main_string = ""
+
+  alphabet = ""
+          
+  for s in chars:
+    main_string += s
+
+  if (alphabet_upper.count(main_string[0]) != 0):
+    alphabet = alphabet_upper
+  else:
+    alphabet = alphabet_lower
+
+  print(alphabet)
+  start_index = alphabet.find(main_string[0])
+  print(f"Start index in alphabet is {start_index}")
+  
+  for i in range(start_index, len(main_string)+start_index):
+    if ((main_string[i-start_index] == alphabet[i]) and (main_string[i-start_index+1] == alphabet[i+1])):
+      print("Едем дальше")
+      continue
+    else:
+      return alphabet[i+1]
+
+print(find_missing_letter(['O','Q','R','S']))
+
+'''
+
+'''
+
+import math
+
+def is_prime(num):
+
+  if (num < 0 or num == 0 or num == 1): return False
+  
+  counter = 0
+
+  for i in range(1, int(math.sqrt(num)) + 1):
+    if (num % i == 0):
+      counter += 1
+    else:
+      continue
+
+  if (counter == 1): return True
+
+  return False
+
+print(is_prime(2))
+
+'''
+
+'''
+
+def meeting(s):
+  s_list = s.split(";")
+  
+  persons_result = []
+  
+  for i in range(0, len(s_list)): # element: Name:Surname
+    
+    s_list_person = s_list[i].split(":")
+    s_list_person.reverse()
+    result_person_list = ", ".join(s_list_person)
+    persons_result.append("(" + result_person_list.upper() + ")")
+
+  result_string = ""
+
+  for el in sorted(persons_result):
+    result_string += el
+
+  return result_string
+
+print(meeting("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn"))
+
+'(ARNO, ANN)(BELL, JOHN)(CORNWELL, ALEX)(DORNY, ABBA)(KERN, LEWIS)(KORN, ALEX)(META, GRACE)(SCHWARZ, VICTORIA)(STAN, MADISON)(STAN, MEGAN)(WAHL, ALEXIS)'
+
+'''
