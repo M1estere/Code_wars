@@ -314,3 +314,93 @@ print(meeting("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:
 '(ARNO, ANN)(BELL, JOHN)(CORNWELL, ALEX)(DORNY, ABBA)(KERN, LEWIS)(KORN, ALEX)(META, GRACE)(SCHWARZ, VICTORIA)(STAN, MADISON)(STAN, MEGAN)(WAHL, ALEXIS)'
 
 '''
+
+'''
+
+def tower_builder(floors):
+  
+  result_list = []
+  line_width = (floors * 2) - 1
+  
+  for i in range(1, 2 * floors, 2):
+    stars = "*" * i
+    line = stars.center(line_width)
+    result_list.append(line)
+  
+  print(*result_list, sep = "\n")
+
+  return result_list
+
+print(tower_builder(110))
+
+'''
+
+'''
+
+def vowel_indices(word):
+  word = word.lower()
+  
+  vowels = ["a", "e", "i", "o", "u", "y"]
+  
+  result_list = []
+
+  for i, j in enumerate(word):
+    if j in vowels or j in [k for k in vowels]:
+      result_list.append(i + 1)
+
+  return result_list
+
+print(vowel_indices("Wordo"))
+
+'''
+
+'''
+
+def reverse_letter(string):
+  string = string.lower()
+  
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+  temp_string = ""
+
+  for char in string:
+    if (char in alphabet):
+      temp_string = char + temp_string
+    else:
+      continue
+
+  return temp_string
+
+print(reverse_letter("Ahahsfaf"))
+
+'''
+
+'''
+
+def calculator(txt):
+  operand = 0
+    
+  if ("+" in txt): 
+    txt_list = txt.split("+")
+    operand = 1
+  if ("-" in txt): 
+    txt_list = txt.split("-")
+    operand = 2
+  if ("*" in txt): 
+    txt_list = txt.split("*")
+    operand = 3
+  if ("//" in txt): 
+    txt_list = txt.split("//")
+    operand = 4
+    
+  left_dots = txt_list[0].count(".")
+  right_dots = txt_list[1].count(".")
+
+  if (operand == 1): return "." * (left_dots + right_dots)
+  if (operand == 2): return "." * (left_dots - right_dots)
+  if (operand == 3): return "." * (left_dots * right_dots)
+  if (operand == 4): return "." * (left_dots // right_dots)
+    
+print(calculator("..... // ."))
+
+'''

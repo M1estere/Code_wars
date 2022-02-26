@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security;
 
 namespace CodeWars
 {
@@ -35,6 +36,12 @@ namespace CodeWars
             /*Console.WriteLine($"Result: {GetReadableTime(7357)}");*/
             
             /*Console.WriteLine($"Result: {IsPrime(97)}");*/
+            
+            /*Console.WriteLine($"Result: {ToUnderscore("PascalCase")}");*/
+            
+            /*Console.WriteLine($"Result: {AlphabetPosition(("The sunset sets at twelve o' clock."))}");*/
+            
+            /*Console.WriteLine($"Result: {ReverseLetter("Priver1231")}");*/
         }
         
         #region FirstDay
@@ -260,6 +267,7 @@ namespace CodeWars
             
             return stringHours + ":" + stringMinutes + ":" + stringSeconds;
         }
+        
         public static bool IsPrime(int n)
         {
             if (n == 1) return false;
@@ -278,6 +286,77 @@ namespace CodeWars
                 return true;
             
             return false;
+        }
+        #endregion
+        
+        #region FifthDay
+        public static string ToUnderscore(int str)
+        {
+            return str.ToString();
+        }
+
+        public static string ToUnderscore(string str) 
+        {
+            string upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            
+            string resultString = "";
+            
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (upperAlphabet.Contains(str[i]) && i != 0)
+                {
+                    resultString += "_" + str[i];
+                } else
+                {
+                    resultString += str[i];
+                }
+            }
+
+            return resultString.ToLower();
+        }
+        
+        public static string AlphabetPosition(string text)
+        {
+            text = text.ToLower();
+
+            string alphabet = "abcdefghijklmnopqrstuvwxyz";
+            
+            string resultString = "";
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (alphabet.Contains(text[i]))
+                {
+                    resultString += alphabet.IndexOf(text[i]) + 1 + " ";
+                } else
+                {
+                    continue;
+                }
+            }
+
+            return resultString.Trim();
+        }
+        
+        public static string ReverseLetter(string str)
+        {
+            str = str.ToLower();
+
+            string alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+            string resultString = "";
+            
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (alphabet.Contains(str[i]))
+                {
+                    resultString = str[i] + resultString;
+                } else
+                {
+                    continue;
+                }
+            }
+
+            return resultString;
         }
         #endregion
     }
