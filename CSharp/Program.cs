@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Security;
 
 namespace CodeWars
 {
@@ -12,6 +9,7 @@ namespace CodeWars
         
         private static void Main(string[] args)
         {
+            #region Main
             /*
             Console.Write("Enter your word: ");
             string word = Console.ReadLine();
@@ -42,6 +40,13 @@ namespace CodeWars
             /*Console.WriteLine($"Result: {AlphabetPosition(("The sunset sets at twelve o' clock."))}");*/
             
             /*Console.WriteLine($"Result: {ReverseLetter("Priver1231")}");*/
+
+            /*Console.WriteLine($"Result: {SpongeMeme("stop Making spongebob Memes!")}");*/
+            
+            /*Console.WriteLine($"Result: {ShorterReverseLonger(">67sf1<", "#")}");*/
+            
+            /*Console.WriteLine($"Result: {SumStrings("5", "175")}");*/
+            #endregion
         }
         
         #region FirstDay
@@ -357,6 +362,54 @@ namespace CodeWars
             }
 
             return resultString;
+        }
+        #endregion
+        
+        #region SixthDay
+        public static string SpongeMeme(string sentence)
+        {
+            string resultString = "";
+            
+            for (int i = 0; i < sentence.Length; i++)
+            {
+                if (i % 2 == 0)
+                    resultString += char.ToUpper(sentence[i]);
+                else
+                    resultString += char.ToLower(sentence[i]);
+            }
+
+            return resultString;
+        }
+        
+        public static string ShorterReverseLonger(string a, string b)
+        {
+            
+            char[] aArray = new char[] { };
+            char[] bArray = new char[] { };
+
+            if (a == null) a = string.Empty;
+            if (b == null) b = string.Empty;
+            
+            if (a != string.Empty)
+            {
+                aArray = a.ToCharArray();
+                Array.Reverse(aArray);
+            }
+
+            if (b != string.Empty)
+            {
+                bArray = b.ToCharArray();
+                Array.Reverse(bArray);
+            }
+            
+            /*if (a.Length >= b.Length)
+                return b + new string(aArray) + b;
+            if (a.Length < b.Length)
+                return a + new string(bArray) + a;*/
+
+            return a.Length >= b.Length ? b + new string(aArray) + b : a + new string(bArray) + a;
+            
+            //return string.Empty;
         }
         #endregion
     }

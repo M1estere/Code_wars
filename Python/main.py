@@ -1,4 +1,4 @@
-''' Every digit squared
+﻿''' Every digit squared
 
 def square_digits(num):
   num = abs(num)
@@ -402,5 +402,101 @@ def calculator(txt):
   if (operand == 4): return "." * (left_dots // right_dots)
     
 print(calculator("..... // ."))
+
+'''
+
+'''
+
+def changer(s):
+  s = s.lower()
+  
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
+  vowels = "aeiou"
+
+  temp_string = ""
+  result_string = ""
+  
+  for char in s:
+    if (char == "z"): 
+      temp_string += "a"
+    elif ((char in alphabet) and (char != "z")):
+      temp_string += str(alphabet[alphabet.index(char) + 1])
+    else:
+      temp_string += char
+
+  for char in temp_string:
+    if (char in vowels):
+      result_string += char.upper()
+    else:
+      result_string += char
+  
+  return result_string
+
+print(changer("yYh6LXyiV6MrQmzwf"))
+
+'''
+
+'''
+
+def vaporcode(s):
+  s = s.replace(" ", "")
+  s_list = list(s)
+  
+  result = ""
+  
+  for el in s_list:
+    result += el.upper() + " "
+
+  return result
+
+print(vaporcode("WVFsm F KEYIa!KZg  g wtakAVTGq"))
+
+'''
+
+'''
+
+def array_diff(a, b):
+
+  for el in b:
+    if (el in a):
+      for i in range(a.count(el)):
+        a.remove(el)
+        
+  return a
+
+print(array_diff([1, 2, 3, 4, 5], [1, 2, 5]))
+
+'''
+
+'''
+
+def scramble(s1, s2):
+  
+  for c in set(s2):
+    if s1.count(c) < s2.count(c):
+      return False
+  return True
+
+print(scramble('katas', 'steak'))
+
+'''
+
+'''
+
+def sort_the_inner_content(words):
+  temp_list = []
+  words_list = words.split()
+  for word in words_list:
+    if (len(word) == 1): temp_list.append("".join(word))
+    else:
+      first_item = list(word[0])
+      middle_item = sorted(list(word[1:-1]), reverse=True)
+      last_item = list(word[-1])
+
+      temp_list.append("".join(first_item + middle_item + last_item))
+
+  return " ".join(temp_list)
+
+print(sort_the_inner_content("wait for me"))
 
 '''
